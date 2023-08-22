@@ -14,8 +14,8 @@ body,
 }
 
 @font-face {
-  font-family: 'Tecmo-Bowl';
-  src: local('Tecmo-Bowl'), url('./fonts/Tecmo-Bowl.woff') format('woff') tech(color-COLRv1);
+  font-family: 'TecmoBowl';
+  src: local('TecmoBowl'), url('./fonts/TecmoBowl.woff') format('woff') tech(color-COLRv1);
 }
 
 @font-face {
@@ -29,8 +29,8 @@ body,
 }
 
 @font-face {
-  font-family: 'Handy00';
-  src: local('Handy00'), url('./fonts/Handy00.woff') format('woff') tech(color-COLRv1);
+  font-family: 'Handy';
+  src: local('Handy'), url('./fonts/Handy.woff') format('woff') tech(color-COLRv1);
 }
 
 a {
@@ -92,7 +92,7 @@ section {
 }
 
 .titleA {
-  font-family: 'Tecmo-Bowl';
+  font-family: 'TecmoBowl';
   font-size: 2rem;
   color: #c3c3c3;
 }
@@ -116,7 +116,7 @@ section {
   color: #1a1d32;
   width: 50px;
   height: 50px;
-  font-family: 'Tecmo-Bowl';
+  font-family: 'TecmoBowl';
   font-size: 1rem;
   display: flex;
   justify-content: center;
@@ -128,7 +128,7 @@ section {
   color: #1a1d32;
   width: 50px;
   height: 50px;
-  font-family: 'Tecmo-Bowl';
+  font-family: 'TecmoBowl';
   font-size: 1rem;
   display: flex;
   justify-content: center;
@@ -150,7 +150,7 @@ section {
 }
 
 .itemTeam {
-  font-family: 'Handy00';
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.8rem;
   color: #a3a3a3;
 }

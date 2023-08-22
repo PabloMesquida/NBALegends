@@ -5,7 +5,7 @@ function CardTitle({ position }) {
   return (
     <group position={position}>
       <Text
-        font="./fonts/Tecmo-Bowl.woff"
+        font="./fonts/TecmoBowl.woff"
         fontSize={0.14}
         anchorX="left"
         color={'#ffffff'}

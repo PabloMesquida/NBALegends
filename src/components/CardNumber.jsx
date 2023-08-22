@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 function CardNumber({ position, number }) {
   return (
     <Text
-      font="./fonts/Tecmo-Bowl.woff"
+      font="./fonts/TecmoBowl.woff"
       fontSize={0.1}
       anchorX="center"
       color={'#ffffff'}
