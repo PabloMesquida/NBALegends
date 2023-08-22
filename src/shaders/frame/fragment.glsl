@@ -17,6 +17,7 @@
 // https://www.shadertoy.com/view/4sBSWW
 
 uniform float uTime;
+uniform bool uLegend;
 
 varying vec2 vUv;
 
@@ -164,17 +165,20 @@ void main(){
   vec2 p = vUv/ vec2(3.0, 2.0);
 	float w = noise( p * WARP_FREQUENCY );
 	p += WARP_INTENSITY * vec2(w,-w);
-    float c = POWER*fbm( SCALE*p ) + BIAS;
-    vec3 color = c * vec3( 1.0, 0.9, 0.0 );
+  float c = POWER*fbm( SCALE*p ) + BIAS;
+  vec3 color = c * vec3( 1.0, 0.9, 0.0 );
     
-    // print t
-    vec2 fontsize = vec2(8.0, 15.0);
-    vec2 position = vec2(0.0, 0.0);
-    float t =  2.0;
-    float prn = PrintValue(vUv, position + vec2(10.0, 100.0), fontsize, t, 1.0, 0.0);
-    color = mix( color, vec3(1.0, 0.9, 0.0), prn);
-	
-    gl_FragColor = vec4(color * strenght, strenght);
-	 // gl_FragColor = vec4( color * strenght, strenght);
+  // print t
+  vec2 fontsize = vec2(8.0, 15.0);
+  vec2 position = vec2(0.0, 0.0);
+  float t =  2.0;
+  float prn = PrintValue(vUv, position + vec2(10.0, 100.0), fontsize, t, 1.0, 0.0);
 
+  if(uLegend){ 
+    color = mix( color, vec3(1.0, 0.9, 0.0), prn);
+  }else{
+    color = vec3(0.65);
+  }
+  
+  gl_FragColor = vec4(color * strenght, strenght);
 }

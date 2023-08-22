@@ -5,7 +5,7 @@ import { Edges } from '@react-three/drei'
 function CardBackground({ position }) {
   return (
     <mesh position={position}>
-      <planeGeometry args={[2, 3, 2, 2]} />
+      <planeGeometry args={[2, 3, 10, 10]} />
       <meshStandardMaterial color={'#4d548a'} transparent opacity={0.95} side={DoubleSide} />
       <Edges color={'#4d548a'} />
     </mesh>

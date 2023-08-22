@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { DoubleSide } from 'three'
 import { extend } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
@@ -10,11 +11,15 @@ const BackMaterial = shaderMaterial({ side: DoubleSide }, backVertexShader, back
 extend({ BackMaterial })
 
 function CardBack({ position }) {
+  const materialRef = useRef()
+
   return (
-    <mesh position={position}>
-      <planeGeometry args={[2, 3, 2, 2]} />
-      <backMaterial />
-    </mesh>
+    <>
+      <mesh position={position}>
+        <planeGeometry args={[2, 3, 10, 10]} />
+        <backMaterial ref={materialRef} />
+      </mesh>
+    </>
   )
 }
 

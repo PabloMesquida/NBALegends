@@ -1,12 +1,17 @@
 import { Text } from '@react-three/drei'
 import PropTypes from 'prop-types'
 
-function CardData({ position }) {
+function formatDecimalWithTwoDecimals(number) {
+  const formattedNumber = Number(number).toFixed(2)
+  return formattedNumber
+}
+
+function CardData({ position, data }) {
   return (
     <group position={position}>
       <group position={[0.25, 0.8, 0.04]}>
-        <Text font="./fonts/Handy00.woff" fontSize={0.2} anchorX="center" color={'#ffffff'}>
-          89
+        <Text font="./fonts/Handy00.woff" fontSize={0.2} anchorX="center" color={'#ffff00'}>
+          {data.attack}
         </Text>
         <Text
           font="./fonts/HelloveticaReg.woff"
@@ -19,8 +24,8 @@ function CardData({ position }) {
         </Text>
       </group>
       <group position={[0.65, 0.8, 0.04]}>
-        <Text font="./fonts/Handy00.woff" fontSize={0.2} anchorX="center" color={'#ffffff'}>
-          32
+        <Text font="./fonts/Handy00.woff" fontSize={0.2} anchorX="center" color={'#ffff00'}>
+          {data.defense}
         </Text>
         <Text
           font="./fonts/HelloveticaReg.woff"
@@ -33,8 +38,8 @@ function CardData({ position }) {
         </Text>
       </group>
       <group position={[0.1, 0.4, 0.04]}>
-        <Text font="./fonts/Handy00.woff" fontSize={0.15} anchorX="left" color={'#ffffff'}>
-          1.261
+        <Text font="./fonts/Handy00.woff" fontSize={0.15} anchorX="left" color={'#ffff00'}>
+          {data.games}
         </Text>
         <Text
           font="./fonts/HelloveticaReg.woff"
@@ -47,8 +52,8 @@ function CardData({ position }) {
         </Text>
       </group>
       <group position={[0.1, 0.0, 0.04]}>
-        <Text font="./fonts/Handy00.woff" fontSize={0.15} anchorX="left" color={'#ffffff'}>
-          27.274
+        <Text font="./fonts/Handy00.woff" fontSize={0.15} anchorX="left" color={'#ffff00'}>
+          {data.points}
         </Text>
         <Text
           font="./fonts/HelloveticaReg.woff"
@@ -61,8 +66,8 @@ function CardData({ position }) {
         </Text>
       </group>
       <group position={[0.1, -0.4, 0.04]}>
-        <Text font="./fonts/Handy00.woff" fontSize={0.15} anchorX="left" color={'#ffffff'}>
-          0
+        <Text font="./fonts/Handy00.woff" fontSize={0.15} anchorX="left" color={'#ffff00'}>
+          {data.champs}
         </Text>
         <Text
           font="./fonts/HelloveticaReg.woff"
@@ -71,12 +76,12 @@ function CardData({ position }) {
           color={'#ffffff'}
           position={[0, -0.17, 0]}
         >
-          Champ
+          Rings
         </Text>
       </group>
       <group position={[0.5, -0.4, 0.04]}>
-        <Text font="./fonts/Handy00.woff" fontSize={0.15} anchorX="left" color={'#ffffff'}>
-          8
+        <Text font="./fonts/Handy00.woff" fontSize={0.15} anchorX="left" color={'#ffff00'}>
+          {data.allStar}
         </Text>
         <Text
           font="./fonts/HelloveticaReg.woff"
@@ -89,8 +94,8 @@ function CardData({ position }) {
         </Text>
       </group>
       <group position={[0.1, -0.8, 0.04]}>
-        <Text font="./fonts/Handy00.woff" fontSize={0.15} anchorX="left" color={'#ffffff'}>
-          2.03
+        <Text font="./fonts/Handy00.woff" fontSize={0.15} anchorX="left" color={'#ffff00'}>
+          {formatDecimalWithTwoDecimals(data.height)}
         </Text>
         <Text
           font="./fonts/HelloveticaReg.woff"
@@ -108,6 +113,7 @@ function CardData({ position }) {
 
 CardData.propTypes = {
   position: PropTypes.arrayOf(PropTypes.number).isRequired,
+  data: PropTypes.object.isRequired,
 }
 
 export default CardData

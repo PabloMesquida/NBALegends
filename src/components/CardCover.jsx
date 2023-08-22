@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 function CardCover({ position }) {
   return (
     <mesh position={position}>
-      <planeGeometry args={[2, 3, 2, 2]} />
+      <planeGeometry args={[2, 3, 10, 10]} />
       <meshStandardMaterial
         color={'#4d548a'}
         metalness={0.8}

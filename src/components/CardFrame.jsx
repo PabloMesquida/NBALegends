@@ -11,6 +11,7 @@ const FrameMaterial = shaderMaterial(
     transparent: true,
     side: DoubleSide,
     uTime: 0,
+    uLegend: false,
   },
   frameVertexShader,
   frameFragmentShader
@@ -18,12 +19,15 @@ const FrameMaterial = shaderMaterial(
 
 extend({ FrameMaterial })
 
-function CardFrame({ position }) {
+function CardFrame({ position, team, legend }) {
   const frameMaterialRef = useRef()
+
+  const frameTeam = legend ? team + ' Legend' : team
 
   useFrame((state, delta) => {
     frameMaterialRef.current.uTime += delta
   })
+
   return (
     <group>
       <Text
@@ -34,12 +38,12 @@ function CardFrame({ position }) {
         position={[-0.855, -1.35, 0.06]}
         rotation={[0, 0, Math.PI / 2]}
       >
-        Denver Nuggets Legend
+        {frameTeam}
       </Text>
 
       <mesh position={position}>
-        <planeGeometry args={[2, 3, 2, 2]} />
-        <frameMaterial ref={frameMaterialRef} />
+        <planeGeometry args={[2, 3, 10, 10]} />
+        <frameMaterial ref={frameMaterialRef} uLegend={legend} />
       </mesh>
     </group>
   )
@@ -47,6 +51,8 @@ function CardFrame({ position }) {
 
 CardFrame.propTypes = {
   position: PropTypes.arrayOf(PropTypes.number).isRequired,
+  team: PropTypes.string.isRequired,
+  legend: PropTypes.bool.isRequired,
 }
 
 export default CardFrame
