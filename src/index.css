@@ -15,22 +15,22 @@ body,
 
 @font-face {
   font-family: 'TecmoBowl';
-  src: local('TecmoBowl'), url('./fonts/TecmoBowl.woff') format('woff') tech(color-COLRv1);
+  src: local('TecmoBowl'), url('./fonts/TecmoBowl.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Superscript';
-  src: local('Superscript'), url('./fonts/Superscript.woff') format('woff') tech(color-COLRv1);
+  src: local('Superscript'), url('./fonts/Superscript.woff') format('woff');
 }
 
 @font-face {
   font-family: 'HelloveticaReg';
-  src: local('HelloveticaReg'), url('./fonts/HelloveticaReg.woff') format('woff') tech(color-COLRv1);
+  src: local('HelloveticaReg'), url('./fonts/HelloveticaReg.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Handy';
-  src: local('Handy'), url('./fonts/Handy.woff') format('woff') tech(color-COLRv1);
+  src: local('Handy'), url('./fonts/Handy.woff') format('woff');
 }
 
 a {
