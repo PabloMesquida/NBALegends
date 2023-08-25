@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Float, OrbitControls } from '@react-three/drei'
+import { useSpring, animated, config } from '@react-spring/web'
 import Card from './components/Card'
 import data from './data/data.json'
 import ListItem from './components/ListItem'
@@ -8,10 +9,27 @@ import ListItem from './components/ListItem'
 function App() {
   const [selectedItem, setSelectedItem] = useState(data[0])
   const [change, setChange] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const isScreenWidthLessThan800 = window.innerWidth < 800
 
   const handleItemClick = (item) => {
-    change && setSelectedItem(item)
+    change && (setSelectedItem(item), setIsOpen(true))
   }
+
+  const listPosition = useSpring({
+    from: { x: isOpen ? 0 : -window.innerWidth },
+    to: { x: isOpen ? -window.innerWidth : 0 },
+    config: config.gentle,
+    loop: false,
+  })
+
+  const arrowPosition = useSpring({
+    from: { x: isOpen ? -100 : 0 },
+    to: { x: isOpen ? 0 : -100 },
+    config: config.gentle,
+    loop: false,
+  })
 
   return (
     <div className="container">
@@ -22,7 +40,10 @@ function App() {
               <span className="titleA">NBA</span> <span className="titleB">Legends</span>
             </h1>
           </header>
-          <div className="list">
+          <animated.div
+            className="list"
+            style={isScreenWidthLessThan800 ? { ...listPosition } : null}
+          >
             <ul>
               {data.map((item, index) => (
                 <li key={index}>
@@ -32,7 +53,18 @@ function App() {
                 </li>
               ))}
             </ul>
-          </div>
+          </animated.div>
+          <animated.div
+            className="itemNumberLegend"
+            style={
+              isScreenWidthLessThan800 ? { display: 'flex', ...arrowPosition } : { display: 'none' }
+            }
+            onClick={() => {
+              setIsOpen(false)
+            }}
+          >
+            »
+          </animated.div>
         </section>
         <section className="sectionDisplay">
           <Canvas camera={{ fov: 20, position: [0, 0, 12] }}>
