@@ -868,5 +868,35 @@
     "allStar": 6,
     "image": "058.png",
     "team": "Detroit Pistons"
+  },
+  {
+    "id": 59,
+    "name": "John Starks",
+    "attack": 76,
+    "defense": 71,
+    "height": 1.9,
+    "games": 962,
+    "points": 12192,
+    "champs": 0,
+    "number": 59,
+    "legend": false,
+    "allStar": 1,
+    "image": "059.png",
+    "team": "New York Knicks"
+  },
+  {
+    "id": 60,
+    "name": "John Stockton",
+    "attack": 91,
+    "defense": 83,
+    "height": 1.85,
+    "games": 1686,
+    "points": 22147,
+    "champs": 0,
+    "number": 60,
+    "legend": true,
+    "allStar": 10,
+    "image": "060.png",
+    "team": "Utah Jazz"
   }
 ]
