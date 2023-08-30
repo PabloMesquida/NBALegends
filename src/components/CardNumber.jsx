@@ -8,7 +8,7 @@ function CardNumber({ position, number }) {
       fontSize={0.1}
       anchorX="center"
       color={'#ffffff'}
-      position={[0.75, 1.28, position[2]]}
+      position={[0.7, 1.28, position[2]]}
     >
       {number}
     </Text>

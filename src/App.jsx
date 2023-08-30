@@ -31,6 +31,13 @@ function App() {
     loop: false,
   })
 
+  const dataWithSums = data.map(item => ({
+    ...item,
+    sum: item.attack + item.defense
+  }));
+
+  const sortedData = dataWithSums.sort((a, b) => b.sum - a.sum);
+
   return (
     <div className="container">
       <main>
@@ -45,7 +52,7 @@ function App() {
             style={isScreenWidthLessThan800 ? { ...listPosition } : null}
           >
             <ul>
-              {data.map((item, index) => (
+              {sortedData.map((item, index) => (
                 <li key={index}>
                   <a href="#" onClick={() => handleItemClick(item)}>
                     <ListItem item={item} />
